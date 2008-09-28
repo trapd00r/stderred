@@ -1,11 +1,13 @@
 #define fwrite ye_olde_fwrite
 #define fwrite_unlocked ye_olde_fwrite_unlocked
+#define error ye_olde_error
 #include <stdio.h>
 
 #include <dlfcn.h>
 
 #undef fwrite
 #undef fwrite_unlocked
+#undef error
 
 /* SOURCE: http://deathray.us/code/color_output.html */
 
