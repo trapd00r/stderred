@@ -68,3 +68,27 @@ int fwrite_unlocked(const void *ptr, int size, int nmemb,
   
 }
 
+void error(int status, int errnum, const char * format) {
+  
+  void * libc = dlopen("/lib/libc.so.6", RTLD_LAZY); /* never closed, rofl */
+  /* Get ourselves */
+  int (*lol_error) (int, int, const char *);
+  *(void **) (&lol_error) = dlsym(libc, "error");
+
+  /* get fwrite so we can set stderr to be red */
+  int (*lol_fwrite) (const void *, int, int, FILE *);
+  *(void **) (&lol_fwrite) = dlsym(libc, "fwrite");
+
+  /* set appropriate color: stderr, so red */
+  /* (*lol_fwrite)(RED, 1, sizeof(RED), stderr); */
+
+
+  /* always do the actual error call */
+  (*lol_error)(status, errnum, format);
+  
+  /* unset color */
+  /* (*lol_fwrite)(COL_RESET, 1, sizeof(COL_RESET), stderr); */
+
+}
+
+
