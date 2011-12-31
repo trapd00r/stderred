@@ -4,15 +4,15 @@
 
 #undef write
 
-static const char COL_RESET[] = "\x1b[0m";
+static const char COL_RESET[] = "\x1b[m";
 
 /*  Foreground colors are in form of 3x, background are 4x */
-static const char RED[]     = "\x1b[31m";
-static const char GREEN[]   = "\x1b[32m";
-static const char YELLOW[]  = "\x1b[33m";
-static const char BLUE[]    = "\x1b[34m";
-static const char MAGENTA[] = "\x1b[35m";
-static const char CYAN[]    = "\x1b[36m";
+static const char RED[]     = "\x1b[38;5;179m";
+static const char GREEN[]   = "\x1b[38;5;106m";
+static const char YELLOW[]  = "\x1b[38;5;220m";
+static const char BLUE[]    = "\x1b[38;5;26m";
+static const char MAGENTA[] = "\x1b[38;5;93m";
+static const char CYAN[]    = "\x1b[38;5;44m";
 
 #define STDERR_COLOR RED
 
